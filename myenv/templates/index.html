@@ -1,0 +1,66 @@
+    {% extends 'base.html' %}
+
+    {% block head %}
+
+    {% endblock %}
+
+    {% block body %}
+    <header style="background: url('{{ url_for('static', filename='parallax/front.jpeg') }}') no-repeat center center/cover; height: 100vh; position: relative; color: white;"></header>>
+        <nav>
+            <div class="container">
+                <h3 class="logo" style="color: #008000; font-weight: 1000;">Agro-Climate</h3>
+                <br>
+                <h3 class="logo" style="color: 	black; font-weight: 1000;">Fertilizer Recommendation</h3>
+
+            </div>
+        </nav>
+
+        <h1 class="big-title translate" data-speed="0.5">Your land, our expertise –<br>the best value guaranteed.</h1>
+
+    </header>
+
+    <section id="scroll2">
+        
+
+        <div class="container">
+            <div class="content opacity">
+                <h3 class="title">
+                    Fill out the Details
+                </h3>
+                <form action="{{ url_for('processing') }}" method="post">
+                    <div class="option2">
+                        <select class="state1" name="crop" onchange="print_crop('crop',this.selectedIndex);" id="sts"
+                            required></select>
+                        <script>
+                            print_crop("sts");
+                        </script>
+                    </div>
+                    <br>
+                    <div class="option1">
+                        <select class="state1" onchange="print_city('state',this.selectedIndex);" name="state" id="s"
+                            required></select>
+                        <br><br>
+                        <select class="state1" name="city" id="state" required></select>
+                        <script>
+                            print_state("s");
+                        </script>
+                    </div>
+
+                    <div class="animaton">
+                        <button type="submit" id="color">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="imgcontainer">
+                <img src="static/parallax/ferti.png" style="opacity: 0.8;">
+            </div>
+        </div>
+    </section>
+    {% endblock %}
